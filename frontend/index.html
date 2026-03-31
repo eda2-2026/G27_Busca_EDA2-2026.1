@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <!--
+    Arquivo: frontend/index.html
+    Funcao no projeto: estrutura base da interface web.
+    Conteudo: formulario de consulta mock e area de saida.
+    O que faz: oferece um front inicial para futura integracao com o backend.
+  -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mapa de Campus - Protótipo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Mapa de Campus</h1>
+    <p>Protótipo inicial do frontend. O backend em C fica em <code>backend/</code>.</p>
+
+    <section class="card">
+      <h2>Consulta rapida (mock)</h2>
+      <form id="formBusca">
+        <label for="tipoBusca">Metodo</label>
+        <select id="tipoBusca">
+          <option value="binaria">Busca binaria</option>
+          <option value="indexada">Busca indexada</option>
+          <option value="interpolacao">Busca por interpolacao</option>
+          <option value="filtro">Busca sequencial por filtro</option>
+        </select>
+
+        <label for="entrada">Entrada</label>
+        <input id="entrada" placeholder="Ex: 203 ou bloco=B tipo=Laboratorio" />
+
+        <button type="submit">Simular consulta</button>
+      </form>
+
+      <pre id="saida">Aguardando consulta...</pre>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

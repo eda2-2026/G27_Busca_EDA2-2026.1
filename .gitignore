@@ -1,0 +1,13 @@
+# Arquivo: .gitignore
+# Funcao: listar arquivos e pastas locais que nao devem ir para o Git.
+# Conteudo: binarios, artefatos de build e pastas de IDE.
+# O que faz: evita versionar arquivos gerados automaticamente.
+/bin/
+/build/
+*.o
+*.out
+*.exe
+*.log
+.DS_Store
+.vscode/
+.idea/

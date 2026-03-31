@@ -1,0 +1,79 @@
+/*
+Arquivo: frontend/style.css
+Funcao no projeto: definir a apresentacao visual do frontend.
+Conteudo: variaveis de tema, estilos de layout, formulario e area de saida.
+O que faz: aplica um visual base para o prototipo da interface.
+*/
+:root {
+  --bg: #f5f3ec;
+  --card: #fffdf8;
+  --ink: #1f2a2d;
+  --accent: #205c56;
+  --accent-2: #d79326;
+  --line: #d8d3c8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top right, #efe9dd 0%, var(--bg) 60%);
+  color: var(--ink);
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h1 {
+  font-family: "Bitter", Georgia, serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: 0 14px 30px rgba(31, 42, 45, 0.08);
+}
+
+form {
+  display: grid;
+  gap: 0.6rem;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.65rem;
+  font: inherit;
+}
+
+button {
+  border: 0;
+  background: linear-gradient(120deg, var(--accent) 0%, #28756d 100%);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+pre {
+  margin-top: 1rem;
+  background: #121619;
+  color: #f7f8fa;
+  border-radius: 8px;
+  padding: 0.8rem;
+  min-height: 72px;
+  overflow: auto;
+}

@@ -1,5 +1,4 @@
 /*
-Arquivo: backend/src/util.c
 Funcao no projeto: implementar utilitarios comuns de apoio ao backend.
 Conteudo: inicializacao de resultado, comparacao de strings e funcoes de impressao.
 O que faz: oferece funcoes reutilizaveis para reduzir duplicacao entre modulos.
@@ -55,17 +54,17 @@ void imprimir_local(const Local *local) {
     }
 
     printf(
-        "id=%d | codigo=%s | nome=%s | bloco=%s | andar=%d | tipo=%s | capacidade=%d | temAr=%d | professor=%s | departamento=%s\n",
+        "id=%d | nome=%s | bloco=%s | andar=%d | tipo=%s | capacidade=%d | temAr=%d | responsavel=%s | materia=%s | horario=%s\n",
         local->id,
-        local->codigo,
         local->nome,
         local->bloco,
         local->andar,
         local->tipo,
         local->capacidade,
         local->tem_ar,
-        local->professor,
-        local->departamento
+        local->responsavel,
+        local->materia,
+        local->horario
     );
 }
 

@@ -2,39 +2,116 @@
 <html lang="pt-BR">
 <head>
   <!--
-    Arquivo: frontend/index.html
-    Funcao no projeto: estrutura base da interface web.
-    Conteudo: formulario de consulta mock e area de saida.
-    O que faz: oferece um front inicial para futura integracao com o backend.
+    Funcao no projeto: tela inicial do sistema de mapa/campus.
+    Conteudo: pesquisa textual com filtros e cadastro de locais.
+    O que faz: permite pesquisar e cadastrar locais usando os mesmos campos principais.
   -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mapa de Campus - Protótipo</title>
+  <title>Mapa de Campus - Pesquisa e Cadastro</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="container">
-    <h1>Mapa de Campus</h1>
-    <p>Protótipo inicial do frontend. O backend em C fica em <code>backend/</code>.</p>
+    <header class="hero">
+      <h1>Mapa de Campus</h1>
+      <p>Pesquise locais por nome, materia, horario, bloco e outros filtros.</p>
+    </header>
 
     <section class="card">
-      <h2>Consulta rapida (mock)</h2>
-      <form id="formBusca">
-        <label for="tipoBusca">Metodo</label>
-        <select id="tipoBusca">
-          <option value="binaria">Busca binaria</option>
-          <option value="indexada">Busca indexada</option>
-          <option value="interpolacao">Busca por interpolacao</option>
-          <option value="filtro">Busca sequencial por filtro</option>
+      <h2>Pesquisa de locais</h2>
+      <form id="formPesquisa" class="grid form-grid">
+        <label for="pId">Numero da sala (ID opcional)</label>
+        <input id="pId" type="number" min="1" placeholder="Ex: 120" />
+
+        <label for="pNome">Nome do local/Sala</label>
+        <input id="pNome" placeholder="Ex: laboratorio ou Sala 120" />
+
+        <label for="pMateria">Materia</label>
+        <input id="pMateria" placeholder="Ex: Engenharia" />
+
+        <label for="pBloco">Bloco</label>
+        <input id="pBloco" placeholder="Ex: B" />
+
+        <label for="pAndar">Andar</label>
+        <input id="pAndar" type="number" placeholder="Ex: 1" />
+
+        <label for="pTipo">Tipo</label>
+        <input id="pTipo" placeholder="Ex: Sala" />
+
+        <label for="pResponsavel">Responsavel</label>
+        <input id="pResponsavel" placeholder="Ex: Ana Silva" />
+
+        <label for="pHorario">Horario</label>
+        <input id="pHorario" placeholder="Ex: 08:00-10:00" />
+
+        <label for="pTemAr">Tem ar-condicionado?</label>
+        <select id="pTemAr">
+          <option value="">Qualquer</option>
+          <option value="1">Sim</option>
+          <option value="0">Nao</option>
         </select>
 
-        <label for="entrada">Entrada</label>
-        <input id="entrada" placeholder="Ex: 203 ou bloco=B tipo=Laboratorio" />
+        <label for="pCapacidade">Capacidade minima</label>
+        <input id="pCapacidade" type="number" min="0" placeholder="Ex: 40 (retorna >= 40)" />
 
-        <button type="submit">Simular consulta</button>
+        <div class="actions full">
+          <button type="submit">Pesquisar</button>
+          <button type="button" id="btnLimparPesquisa" class="secondary">Limpar filtros</button>
+        </div>
       </form>
 
-      <pre id="saida">Aguardando consulta...</pre>
+      <div class="resultado-pesquisa">
+        <h3>Resultados encontrados</h3>
+        <p id="statusPesquisa" class="resultado-status">Preencha os filtros e clique em Pesquisar.</p>
+        <div id="listaPesquisa" class="lista-locais"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Cadastro de local</h2>
+      <form id="formCadastro" class="grid form-grid">
+        <label for="cId">Numero da sala (ID)</label>
+        <input id="cId" type="number" min="1" required />
+
+        <label for="cNome">Nome</label>
+        <input id="cNome" maxlength="99" placeholder="Ex: Sala 105" required />
+
+        <label for="cBloco">Bloco</label>
+        <input id="cBloco" maxlength="29" placeholder="Ex: E" required />
+
+        <label for="cAndar">Andar</label>
+        <input id="cAndar" type="number" required />
+
+        <label for="cTipo">Tipo</label>
+        <input id="cTipo" maxlength="39" placeholder="Ex: Sala" required />
+
+        <label for="cCapacidade">Capacidade</label>
+        <input id="cCapacidade" type="number" min="0" required />
+
+        <label for="cTemAr">Tem ar?</label>
+        <select id="cTemAr" required>
+          <option value="1">Sim</option>
+          <option value="0">Nao</option>
+        </select>
+
+        <label for="cResponsavel">Responsavel</label>
+        <input id="cResponsavel" maxlength="99" placeholder="Ex: Marina Oliveira" required />
+
+        <label for="cMateria">Materia</label>
+        <input id="cMateria" maxlength="99" placeholder="Ex: Computacao" required />
+
+        <label for="cHorario">Horario</label>
+        <input id="cHorario" maxlength="39" placeholder="Ex: 08:00-10:00" required />
+
+        <button type="submit" class="full">Cadastrar local</button>
+      </form>
+
+      <div class="resultado-pesquisa">
+        <h3>Locais cadastrados</h3>
+        <p id="statusCadastro" class="resultado-status">Carregando locais cadastrados...</p>
+        <div id="listaCadastrados" class="lista-locais"></div>
+      </div>
     </section>
   </main>
 

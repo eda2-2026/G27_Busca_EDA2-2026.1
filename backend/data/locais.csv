@@ -1,0 +1,14 @@
+id;nome;bloco;andar;tipo;capacidade;tem_ar;responsavel;materia;horario
+1;I1;UAC;1;Sala;30;1;Cristiane;MD2;08:00-10:00
+2;I2;UAC;1;Sala;35;1;Glauco;Bancos;10:00-12:00
+3;I9;UAC;1;Sala;125;0;Bruno;Algoritmos;14:00-16:00
+4;Biblioteca;UAC;1;Biblioteca;80;1;-;-;09:00-18:00
+5;S1;UAC;2;Sala;120;1;Rafael;Redes I;16:00-18:00
+6;S2;UAC;2;Sala;120;1;Daniel;FSO;10:00-12:00
+7;S10;UAC;2;Laboratorio de computadores;150;0;Nilton;APC;08:00-10:00
+8;Auditorio;UAC;1;Auditorio;200;1;Fragelli;Calculo I;19:00-21:00
+9;Mocap;UED;1;Auditorio;100;1;Maurício;EDA2;14:00-16:00
+10;Sala 203;UED;3;Sala;30;1;AILAB;Monitoria;14:00-16:00
+11;Conteiner 01;Externo;3;Conteiner;10;1;AILAB makers;Inteligencia Artificial;18:00-20:00
+12;Secretaria;UAC;1;Administração;15;1;Chiquinho;Administração;16:00-18:00
+13;RU;RU;1;Refeitório;150;1;-;-;20:00-22:00

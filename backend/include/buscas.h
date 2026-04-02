@@ -1,5 +1,4 @@
 /*
-Arquivo: backend/include/buscas.h
 Funcao no projeto: declarar contratos das buscas e estruturas de resultado.
 Conteudo: ResultadoBusca, EntradaIndice e assinaturas das funcoes de busca.
 O que faz: garante uma API unica para as implementacoes de busca no backend.
@@ -26,20 +25,6 @@ typedef struct {
 
 void resultado_inicializar(ResultadoBusca *resultado);
 int resultado_adicionar(ResultadoBusca *resultado, size_t indice);
-
-int busca_sequencial_por_filtro(
-    const Local *locais,
-    size_t total,
-    const FiltroLocal *filtro,
-    ResultadoBusca *resultado
-);
-
-int busca_sequencial_tabela_ordenada_por_id(
-    const Local *locais,
-    size_t total,
-    int id,
-    ResultadoBusca *resultado
-);
 
 int busca_binaria_por_id(
     const Local *locais,

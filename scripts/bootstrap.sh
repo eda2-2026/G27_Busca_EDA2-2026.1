@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Arquivo: scripts/bootstrap.sh
 # Funcao no projeto: automatizar a validacao inicial do ambiente.
-# Conteudo: checagem de gcc/make e execucao de make clean + make check.
+# Conteudo: checagem de gcc/make e execucao de make clean + make build.
 # O que faz: confirma que a maquina esta pronta para desenvolver no projeto.
 set -euo pipefail
 
@@ -22,9 +22,10 @@ make --version | head -n 1
 echo
 echo "Rodando validacao do projeto..."
 make clean
-make check
+make build
 
 echo
 echo "Ambiente pronto."
-echo "Executavel base:"
+echo "Executaveis gerados:"
 echo "  ./bin/campus_busca"
+echo "  ./bin/campus_api"

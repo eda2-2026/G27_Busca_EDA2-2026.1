@@ -35,7 +35,7 @@ Se o script passar, o ambiente esta pronto.
 
 1. Atualizar branch principal: `git checkout main && git pull`
 2. Criar branch da tarefa: `git checkout -b feat/<descricao-curta>`
-3. Codar e validar: `make test`
+3. Codar e validar: `make build`
 4. Abrir PR para revisao da colega
 5. Merge apos aprovacao
 
@@ -43,13 +43,40 @@ Se o script passar, o ambiente esta pronto.
 
 ```bash
 make clean
-make check
+make build
 ```
 
 ## 5) Comandos uteis
 
 ```bash
-./bin/campus_busca
+./bin/campus_busca binaria 203
+make run-api
+curl "http://localhost:8091/api/locais"
 make build
-make test
+```
+
+## 6) Rodar interface web conectada na API
+
+Em dois terminais:
+
+```bash
+# Terminal 1
+make run-api
+
+# Terminal 2
+cd frontend
+python3 -m http.server 5500
+```
+
+Depois abra `http://localhost:5500`.
+
+## 7) Checklist rapido para subir e compartilhar
+
+```bash
+make clean
+make build
+git status
+git add .
+git commit -m "setup pronto para integracao da dupla"
+git push
 ```

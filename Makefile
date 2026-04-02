@@ -1,46 +1,46 @@
 # Arquivo: Makefile
 # Funcao no projeto: centralizar comandos de build, teste e limpeza.
-# Conteudo: variaveis de compilacao e alvos (build, run, test, check, clean).
+# Conteudo: variaveis de compilacao e alvos (build, run, run-api, check, clean).
 # O que faz: padroniza o fluxo para toda a equipe com um conjunto unico de comandos.
 CC := gcc
 CFLAGS := -Wall -Wextra -Wpedantic -std=c11 -Ibackend/include -g
 LDFLAGS :=
+API_PORT := 8091
 
 TARGET := bin/campus_busca
-TEST_TARGET := bin/test_buscas
+TARGET_API := bin/campus_api
 
 SRC_COMMON := \
 	backend/src/dataset.c \
 	backend/src/util.c \
-	backend/src/busca_sequencial.c \
 	backend/src/busca_binaria.c \
 	backend/src/busca_indexada.c \
 	backend/src/busca_interpolacao.c
 
 MAIN_SRC := backend/src/main.c
-TEST_SRC := backend/tests/test_buscas.c
+API_SRC := backend/src/api_adapter.c
 
-.PHONY: all build run test check clean
+.PHONY: all build run run-api check clean
 
 all: build
 
-build: $(TARGET)
+build: $(TARGET) $(TARGET_API)
 
 $(TARGET): $(SRC_COMMON) $(MAIN_SRC)
 	@mkdir -p bin
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 
-$(TEST_TARGET): $(SRC_COMMON) $(TEST_SRC)
+$(TARGET_API): $(SRC_COMMON) $(API_SRC)
 	@mkdir -p bin
 	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 
 run: $(TARGET)
 	./$(TARGET)
 
-test: $(TEST_TARGET)
-	./$(TEST_TARGET)
+run-api: $(TARGET_API)
+	./$(TARGET_API) $(API_PORT)
 
-check: build test
+check: build
 
 clean:
 	rm -rf bin

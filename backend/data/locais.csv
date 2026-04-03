@@ -12,3 +12,4 @@ id;nome;bloco;andar;tipo;capacidade;tem_ar;responsavel;materia;horario
 11;Conteiner 01;Externo;3;Conteiner;10;1;AILAB makers;Inteligencia Artificial;18:00-20:00
 12;Secretaria;UAC;1;Administração;15;1;Chiquinho;Administração;16:00-18:00
 13;RU;RU;1;Refeitório;150;1;-;-;20:00-22:00
+15;I3;UAC;1;Sala;45;0;George;Requisitos;10:00-12:00

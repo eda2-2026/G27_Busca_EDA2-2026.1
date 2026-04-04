@@ -9,9 +9,39 @@ Aplicando o size_t para nao incluir nº negativos
 
 */
 
+//funcao de calcular o hash, formula baseada na estrutura dos slides da disciplina
 static size_t calcula_hash(const char *texto, size_t tabela_tamanho) {
     if (tabela_tamanho == NULL || tabela_tamanho == 0) {
         return 0;
     }
-    unsigned long hash = 47;  //numero primo aleatorio para evitar padrões na divisão
+    size_t letras_soma = 0;  //numero primo aleatorio para evitar padrões na divisão
+
+    for (size_t i = 0; texto[i] != '\n'; i++) {
+
+        //converter todas as letras do texto para minusculas usando o 'tolower' para obter uma estrutura padrão
+        letras_soma = letras_soma + (unsigned char) tolower ((unsigned char) texto[i]);
+    }
+
+    return letras_soma % tabela_tamanho;
+}
+
+//funcao que cria a tabela hash
+TabelaHash* cria_tabelaHash (size_t tamanho) {
+    if (tamanho == 0) {
+        return NULL;
+    }
+    TabelaHash *tabela = (TabelaHash *) malloc (sizeof(TabelaHash));
+    
+    if (tabela == NULL) {
+        return NULL;
+    }
+
+    tabela->inicio = (ListaEnc_hash **) calloc (tamanho, sizeof(ListaEnc_hash *));
+    if(tabela->inicio == NULL){
+        free (tabela);
+        return NULL;
+    }
+
+    tabela->tamanho_total = tamanho;
+    return tabela;
 }

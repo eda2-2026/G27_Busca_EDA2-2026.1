@@ -91,3 +91,27 @@ static int cadastro_vs_busca(const char *local_cadastrado, const char *local_bus
     //se não entrou nos if provavel que palavra era maior que a outra
     return 0; 
 }
+
+
+//funcao de BUSCAR local pelo nome
+const Local* buscar_hash(TabelaHash *tabela, const char *nome_buscado) {
+    if (tabela == NULL || nome_buscado == NULL) return NULL;
+
+    // 1. Vai direto na gaveta certa usando a mesma matemática
+    size_t indice_hash = calcular_hash(nome_buscado, tabela->tamanho_total);
+
+    // 2. Olha para a primeira etiqueta que está nessa gaveta
+    ListaEnc_hash *local_em_verificacao = tabela->inicio[indice_hash];
+
+    //percorre lista encd ate achar nome/fim
+    while (local_em_verificacao != NULL) {
+        if (cadastro_vs_busca(local_em_verificacao->dados_local->nome, nome_buscado) == 1) {
+            return local_em_verificacao->dados_local; 
+        }
+
+        local_em_verificacao = local_em_verificacao->proximo;
+    }
+
+    // Se o while nao achou nada, devolve NULL
+    return NULL; 
+}

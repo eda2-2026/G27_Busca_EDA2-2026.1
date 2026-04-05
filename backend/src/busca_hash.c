@@ -10,13 +10,13 @@ Aplicando o size_t para nao incluir nº negativos
 */
 
 //funcao de CALCULAR o hash, formula baseada na estrutura dos slides da disciplina
-static size_t calcula_hash(const char *texto, size_t tabela_tamanho) {
-    if (tabela_tamanho == NULL || tabela_tamanho == 0) {
+static size_t calcular_hash(const char *texto, size_t tabela_tamanho) {
+    if (texto == NULL || tabela_tamanho == 0) {
         return 0;
     }
     size_t letras_soma = 0;  //numero primo aleatorio para evitar padrões na divisão
 
-    for (size_t i = 0; texto[i] != '\n'; i++) {
+    for (size_t i = 0; texto[i] != '\0'; i++) {
 
         //converter todas as letras do texto para minusculas usando o 'tolower' para obter uma estrutura padrão
         letras_soma = letras_soma + (unsigned char) tolower ((unsigned char) texto[i]);
@@ -26,7 +26,7 @@ static size_t calcula_hash(const char *texto, size_t tabela_tamanho) {
 }
 
 //funcao que CRIAR a tabela hash
-TabelaHash* cria_tabelaHash (size_t tamanho) {
+TabelaHash* criar_tabela_hash(size_t tamanho) {
     if (tamanho == 0) {
         return NULL;
     }

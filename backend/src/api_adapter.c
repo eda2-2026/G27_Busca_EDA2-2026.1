@@ -242,7 +242,7 @@ static void inicializar_banco(void) {
     ordenar_locais_por_id(g_locais, g_total_locais);
     g_banco_inicializado = 1;
     
-
+//HASH
     g_tabela_hash = criar_tabela_hash(200); 
     
 
@@ -251,6 +251,7 @@ static void inicializar_banco(void) {
     }
 }
 
+//HASH
 static int filtro_tem_algum_criterio_textual(const FiltroLocal *filtro) {
     return filtro->nome != NULL ||
            filtro->responsavel != NULL ||

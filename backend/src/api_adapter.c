@@ -15,6 +15,7 @@ O que faz: conecta o frontend ao backend em C com escolha automatica de algoritm
 #include "buscas.h"
 #include "dataset.h"
 #include "util.h"
+#include "busca_hash.h"
 
 #define CAPACIDADE_DATASET 1024
 #define REQ_BUF 16384
@@ -37,6 +38,7 @@ typedef struct {
 static Local g_locais[CAPACIDADE_DATASET];
 static size_t g_total_locais = 0;
 static int g_banco_inicializado = 0;
+static TabelaHash *g_tabela_hash = NULL;
 
 typedef struct {
     int chave;
@@ -239,6 +241,14 @@ static void inicializar_banco(void) {
 
     ordenar_locais_por_id(g_locais, g_total_locais);
     g_banco_inicializado = 1;
+    
+
+    g_tabela_hash = criar_tabela_hash(200); 
+    
+
+    for (size_t i = 0; i < g_total_locais; i++) {
+        inserir_hash(g_tabela_hash, &g_locais[i]);
+    }
 }
 
 static int filtro_tem_algum_criterio_textual(const FiltroLocal *filtro) {
@@ -994,6 +1004,33 @@ static size_t coletar_candidatos_tres_buscas(
 
 static void responder_busca_automatica(int client_fd, const FiltroMutavel *dados_filtro) {
     CampoPrincipal campo = escolher_campo_principal(dados_filtro);
+    
+    //hash
+    if (campo == CAMPO_PRINCIPAL_NOME && dados_filtro->filtro.nome != NULL) {
+        const Local *local_encontrado = buscar_hash(g_tabela_hash, dados_filtro->filtro.nome);
+        
+        ResultadoBusca resultado_hash;
+        resultado_inicializar(&resultado_hash);
+        
+        if (local_encontrado != NULL) {
+            size_t indice_original = local_encontrado - g_locais; 
+            resultado_adicionar(&resultado_hash, indice_original);
+            resultado_hash.comparacoes = 1; 
+        }
+
+        responder_locais_por_resultado(
+            client_fd,
+            g_locais,
+            g_total_locais,
+            &resultado_hash,
+            "nome",
+            "tabela_hash_O(1)"
+        );
+        
+        return;
+    }
+
+    //hash
     if (campo == CAMPO_PRINCIPAL_NENHUM) {
         ResultadoBusca resultado;
         (void)filtrar_locais_direto(g_locais, g_total_locais, &dados_filtro->filtro, &resultado);
@@ -1182,6 +1219,7 @@ static void tratar_conexao(int client_fd) {
         );
         return;
     }
+
 
     if (strncmp(uri, "/api/busca", 10) == 0) {
         if (strcmp(metodo_http, "GET") != 0) {

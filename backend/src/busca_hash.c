@@ -45,3 +45,23 @@ TabelaHash* cria_tabelaHash (size_t tamanho) {
     tabela->tamanho_total = tamanho;
     return tabela;
 }
+
+//funcao de inserir hash
+void inserir_hash(TabelaHash *tabela, const Local *local_campus) {
+    if (tabela == NULL || local_campus == NULL) return;
+
+    //indice que foi calculado pela funcao hash
+    size_t indice_hash = calcular_hash(local_campus->nome, tabela->tamanho_total);
+
+   //logica de colisao insere sempre no primeiro da lista: no_cbc
+    ListaEnc_hash *no_cbc = (ListaEnc_hash *)malloc(sizeof(ListaEnc_hash));
+    if (no_cbc == NULL) return; // verifica memoria
+    
+    no_cbc->dados_local = local_campus;
+
+    //solucao para a colisao
+    no_cbc->proximo = tabela->inicio[indice_hash];
+
+    // no_cbc no indice mais recente
+    tabela->inicio[indice_hash] = no_cbc;
+}

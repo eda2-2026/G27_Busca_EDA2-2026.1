@@ -9,7 +9,7 @@ Aplicando o size_t para nao incluir nº negativos
 
 */
 
-//funcao de calcular o hash, formula baseada na estrutura dos slides da disciplina
+//funcao de CALCULAR o hash, formula baseada na estrutura dos slides da disciplina
 static size_t calcula_hash(const char *texto, size_t tabela_tamanho) {
     if (tabela_tamanho == NULL || tabela_tamanho == 0) {
         return 0;
@@ -25,7 +25,7 @@ static size_t calcula_hash(const char *texto, size_t tabela_tamanho) {
     return letras_soma % tabela_tamanho;
 }
 
-//funcao que cria a tabela hash
+//funcao que CRIAR a tabela hash
 TabelaHash* cria_tabelaHash (size_t tamanho) {
     if (tamanho == 0) {
         return NULL;
@@ -46,22 +46,48 @@ TabelaHash* cria_tabelaHash (size_t tamanho) {
     return tabela;
 }
 
-//funcao de inserir hash
+//funcao de INSERIR hash
 void inserir_hash(TabelaHash *tabela, const Local *local_campus) {
     if (tabela == NULL || local_campus == NULL) return;
 
     //indice que foi calculado pela funcao hash
     size_t indice_hash = calcular_hash(local_campus->nome, tabela->tamanho_total);
 
-   //logica de colisao insere sempre no primeiro da lista: no_cbc
-    ListaEnc_hash *no_cbc = (ListaEnc_hash *)malloc(sizeof(ListaEnc_hash));
-    if (no_cbc == NULL) return; // verifica memoria
+   //logica de colisao insere sempre no primeiro da lista: novo_local
+    ListaEnc_hash *novo_local = (ListaEnc_hash *)malloc(sizeof(ListaEnc_hash));
+    if (novo_local == NULL) return; // verifica memoria
     
-    no_cbc->dados_local = local_campus;
+    novo_local->dados_local = local_campus;
 
     //solucao para a colisao
-    no_cbc->proximo = tabela->inicio[indice_hash];
+    novo_local->proximo = tabela->inicio[indice_hash];
 
     // no_cbc no indice mais recente
-    tabela->inicio[indice_hash] = no_cbc;
+    tabela->inicio[indice_hash] = novo_local;
+}
+
+
+// COMPARA TEXTO QUE FOI INSERIDO PELO USUARIO COM O QUE ESTA SALVO NO BANCO
+static int cadastro_vs_busca(const char *local_cadastrado, const char *local_buscado) {
+    int i = 0;
+
+    while (local_cadastrado[i] != '\0' && local_buscado[i] != '\0') {
+        
+        // Transformar em minusculo e comparar
+        unsigned char letra_cadastro = (unsigned char)tolower((unsigned char)local_cadastrado[i]);
+        unsigned char letra_busca = (unsigned char)tolower((unsigned char)local_buscado[i]);
+        
+        if (letra_cadastro != letra_busca) {
+            return 0; //palavras diferentes
+        }
+
+        i++; 
+    }
+
+    if (local_cadastrado[i] == '\0' && local_buscado[i] == '\0') {
+        return 1; //confirma que são iguais
+    }
+
+    //se não entrou nos if provavel que palavra era maior que a outra
+    return 0; 
 }

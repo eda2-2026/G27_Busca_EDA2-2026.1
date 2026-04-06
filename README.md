@@ -18,6 +18,21 @@ O sistema atua como uma central inteligente de roteamento de buscas:
 
 ## Screenshots
 
+**1. Interface e Filtros (Busca Binária, Indexada e Interpolada)**
+![Interface com Busca Múltipla e Interpolada](./docs/Print1_interface_busca_interpolada.PNG)
+
+**2. Comprovação da Busca Hash com custo O(1)**
+![Interface com Busca Hash direta por nome](./docs/Print2_interface_busca_hash.PNG)
+
+**3. Estrutura do Código: Busca Interpolada**
+![Trecho do código mostrando a lógica da Busca Interpolada](./docs/Print3_codigo_busca_interpolada.PNG)
+
+**4. Estrutura do Código: Busca Hash**
+![Trecho do código mostrando a lógica da Busca Hash](./docs/Print4_codigo_busca_hash.PNG)
+
+**5. Servidores em Execução (Estabilidade)**
+![Terminais rodando o servidor Backend em C e o Frontend simultaneamente](./docs/Print5_Terminais.PNG)
+
 ## Instalação 
 Linguagem: C (Backend) e HTML/JS/CSS (Frontend)<br>
 Framework: Nenhum (Sockets nativos em C)<br>

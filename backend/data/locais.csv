@@ -13,3 +13,39 @@ id;nome;bloco;andar;tipo;capacidade;tem_ar;responsavel;materia;horario
 12;Secretaria;UAC;1;Administração;15;1;Chiquinho;Administração;16:00-18:00
 13;RU;RU;1;Refeitório;150;1;-;-;20:00-22:00
 15;I3;UAC;1;Sala;45;0;George;Requisitos;10:00-12:00
+16;I4;UAC;1;Sala;50;1;Rose;Matematica Discreta;10:00-12:00
+17;I5;UAC;1;Sala;40;1;Luciana;Logica;08:00-10:00
+18;I6;UAC;1;Sala;30;0;Edson;Banco de Dados II;14:00-16:00
+19;I7;UAC;1;Sala;30;0;Fabio;IHC;16:00-18:00
+20;I8;UAC;1;Sala;50;0;Edson;Matematica Discreta;14:00-16:00
+21;I10;UAC;1;Sala;40;0;Fernando;IHC;19:00-21:00
+22;S3;UAC;2;Sala;45;1;Edson;Grafos;10:00-12:00
+23;S4;UAC;2;Sala;100;1;Fabio;Matematica Discreta;14:00-16:00
+24;S5;UAC;2;Laboratorio;45;1;Rose;Logica;08:00-10:00
+25;S6;UAC;2;Sala;80;0;Rose;Logica;08:00-10:00
+26;S7;UAC;2;Sala;80;0;Rose;Grafos;14:00-16:00
+27;S8;UAC;2;Laboratorio;100;0;Fernando;Banco de Dados II;16:00-18:00
+28;S9;UAC;2;Sala;80;1;Rose;Logica;14:00-16:00
+29;Lab Fisica 1;UED;1;Laboratorio;25;1;Roberto;Fisica 1;08:00-10:00
+30;Lab Fisica 2;UED;1;Laboratorio;25;1;Roberto;Fisica 2;10:00-12:00
+31;Lab Quimica;UED;1;Laboratorio;20;1;Aline;Quimica;14:00-16:00
+32;Lab Quimica Exp;UED;1;Laboratorio;20;0;Aline;Quimica Experimental;16:00-18:00
+33;Lab PED1;UED;1;Laboratorio;30;1;Marcelo;Eletronica 1;08:00-10:00
+34;Lab PED2;UED;1;Laboratorio;30;1;Marcelo;Eletronica 2;10:00-12:00
+35;Lab Termodinamica;UED;1;Laboratorio;25;0;Carlos;Termodinamica;14:00-16:00
+36;Lab Mecanica Fluidos;UED;1;Laboratorio;20;1;Juliana;Fenomenos de Transporte;16:00-18:00
+37;Lab Automacao;UED;1;Laboratorio;25;1;Fernando;Controle e Automacao;19:00-21:00
+38;Lab Eletromagnetismo;UED;1;Laboratorio;20;1;Roberto;Eletromagnetismo;14:00-16:00
+39;Sala 201;UED;2;Sala de Professor;5;1;Edson;-;08:00-18:00
+40;Sala 202;UED;2;Sala de Professor;5;1;Rose;-;08:00-18:00
+41;Sala 204;UED;2;Sala de Professor;5;1;Fabio;-;08:00-18:00
+42;Sala 205;UED;2;Sala de Professor;5;1;Fernando;-;08:00-18:00
+43;Sala 206;UED;2;Sala de Professor;5;1;Luciana;-;08:00-18:00
+44;Sala 207;UED;2;Sala de Professor;5;1;Marcos;-;08:00-18:00
+45;Sala 208;UED;2;Sala de Professor;5;1;Cristiane;-;08:00-18:00
+46;Sala 209;UED;2;Sala de Professor;5;0;Glauco;-;08:00-18:00
+47;Sala 210;UED;2;Sala de Professor;5;1;Bruno;-;08:00-18:00
+48;Sala 211;UED;2;Sala de Professor;5;1;Rafael;-;08:00-18:00
+49;Sala 212;UED;2;Sala de Professor;5;0;Daniel;-;08:00-18:00
+50;Sala 213;UED;2;Sala de Professor;5;1;Nilton;-;08:00-18:00
+51;Sala 214;UED;2;Sala de Professor;5;1;Maurício;-;08:00-18:00

@@ -1,8 +1,3 @@
-/*
-Funcao no projeto: implementar utilitarios comuns de apoio ao backend.
-Conteudo: inicializacao de resultado, comparacao de strings e funcoes de impressao.
-O que faz: oferece funcoes reutilizaveis para reduzir duplicacao entre modulos.
-*/
 #include "util.h"
 
 #include <ctype.h>

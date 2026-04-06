@@ -1,8 +1,3 @@
-/*
-Funcao no projeto: definir os tipos de dados centrais do dominio.
-Conteudo: constantes de tamanho, struct Local e struct FiltroLocal.
-O que faz: padroniza o formato dos dados de local e dos filtros de consulta.
-*/
 #ifndef LOCAL_H
 #define LOCAL_H
 

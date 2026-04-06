@@ -1,8 +1,3 @@
-/*
-Funcao no projeto: implementar busca por interpolacao para ids numericos.
-Conteudo: implementacao da funcao busca_interpolacao_por_id.
-O que faz: estima a posicao de busca em vetor ordenado com ids numericos.
-*/
 #include "buscas.h"
 
 int busca_interpolacao_por_id(

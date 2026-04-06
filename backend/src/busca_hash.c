@@ -53,7 +53,6 @@ void inserir_hash(TabelaHash *tabela, const Local *local_campus) {
 }
 
 
-// COMPARA TEXTO QUE FOI INSERIDO PELO USUARIO COM O QUE ESTA SALVO NO BANCO
 static int cadastro_vs_busca(const char *local_cadastrado, const char *local_buscado) {
     int i = 0;
 

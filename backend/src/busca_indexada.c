@@ -1,8 +1,3 @@
-/*
-Funcao no projeto: implementar indice primario e busca sequencial indexada.
-Conteudo: construcao de indice primario e busca por faixa indexada.
-O que faz: reduz a varredura para um trecho menor do vetor ordenado.
-*/
 #include "buscas.h"
 
 size_t construir_indice_primario(

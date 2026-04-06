@@ -24,14 +24,20 @@ O sistema atua como uma central inteligente de roteamento de buscas:
 **2. Comprovação da Busca Hash com custo O(1)**
 ![Interface com Busca Hash direta por nome](./docs/Print2_interface_busca_hash.PNG)
 
-**3. Estrutura do Código: Busca Interpolada**
-![Trecho do código mostrando a lógica da Busca Interpolada](./docs/Print3_codigo_busca_interpolada.PNG)
+**3. Estrutura do Código: Busca Binária**
+![Trecho do código mostrando a lógica da Busca Binária](./docs/Print3_codigo_busca_binaria.PNG)
 
-**4. Estrutura do Código: Busca Hash**
-![Trecho do código mostrando a lógica da Busca Hash](./docs/Print4_codigo_busca_hash.PNG)
+**4. Estrutura do Código: Busca Sequencial Indexada**
+![Trecho do código mostrando a construção do índice primário](./docs/Print4_codigo_busca_indexada.PNG)
 
-**5. Servidores em Execução (Estabilidade)**
-![Terminais rodando o servidor Backend em C e o Frontend simultaneamente](./docs/Print5_Terminais.PNG)
+**5. Estrutura do Código: Busca por Interpolação**
+![Trecho do código mostrando a Busca Interpolada por ID](./docs/Print5_codigo_busca_interpolada.PNG)
+
+**6. Estrutura do Código: Busca Hash**
+![Trecho do código mostrando a alocação dinâmica da Tabela Hash](./docs/Print6_codigo_busca_hash.PNG)
+
+**7. Servidores em Execução (Estabilidade)**
+![Terminais rodando o servidor Backend em C e o Frontend simultaneamente](./docs/Print7_Terminais.PNG)
 
 ## Instalação 
 Linguagem: C (Backend) e HTML/JS/CSS (Frontend)<br>

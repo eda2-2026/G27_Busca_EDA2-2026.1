@@ -1,72 +1,31 @@
-# G27_Busca_EDA2-2026.1
+# Mapa de Campus
 
-## Sobre este arquivo
+Número da Lista: Trabalho 1 - Busca <br>
+Conteúdo da Disciplina: Algoritmos de Busca <br>
 
-Funcao: apresentar a visao geral do repositorio.
-Conteudo: objetivo da aplicacao, estrutura de pastas, requisitos e comandos principais.
-O que faz: serve como ponto de entrada para qualquer pessoa da equipe.
+## Alunas
+|Matrícula | Aluno |
+| -- | -- |
+| 241036142  | Júlia Gabriella Ferreira Siqueira |
+| 231035722  | Marina Agostini Galdi |
 
-Este repositorio ja esta preparado para desenvolvimento em dupla.
-Ja inclui:
-- API HTTP em C para consulta e cadastro de locais.
-- Integracao com os 3 metodos de busca (binaria, indexada e interpolacao) no fluxo da API.
-- Tela web conectada ao backend real.
+## Sobre 
+O **Mapa de Campus** é um serviço projetado para gerenciar e consultar o catálogo de locais de um campus universitário (salas, laboratórios, auditórios, etc.). O principal objetivo deste projeto é aplicar estruturas de dados de alto desempenho na prática, conectando um backend nativo em C a uma interface Web de pesquisas e filtros.
 
-## Estrutura
+O sistema atua como uma central inteligente de roteamento de buscas:
+* **Buscas Numéricas e Textuais secundárias (ID, Capacidade, Andar, etc.):** Utilizam a combinação de Busca Binária, Busca Sequencial Indexada e Busca por Interpolação, isolando blocos de memória para reduzir as varreduras.
+* **Busca Textual Primária (Nome do local):** É interceptada por uma **Tabela de Espalhamento (Hash)**. Utilizando a matemática do Método da Divisão para o cálculo de índices e Listas Encadeadas para o tratamento de colisões (Hashing Estático Aberto), o sistema garante tempo de recuperação constante O(1) e acesso direto à memória.
 
-- `backend/include`: contratos compartilhados (structs e assinaturas)
-- `backend/src`: implementacoes em C (metodos de busca + API)
-- `backend/data`: banco local CSV de locais
-- `frontend`: interface de pesquisa/filtros/cadastro conectada na API
-- `docs`: setup e organizacao da equipe
+## Screenshots
 
-## Requisitos
+## Instalação 
+Linguagem: C<br>
 
-- `gcc` (C11)
-- `make`
 
-## Setup rapido
+**Pré-requisitos:**
+* Compilador GCC.
 
-```bash
-./scripts/bootstrap.sh
-```
 
-## Build manual (sem bootstrap)
+**Comandos necessários:**
 
-```bash
-make build
-./bin/campus_busca binaria 203
-./bin/campus_api 8091
-```
-
-## Rodar a aplicacao completa
-
-Em dois terminais:
-
-```bash
-# Terminal 1
 make run-api
-
-# Terminal 2
-cd frontend
-python3 -m http.server 5500
-```
-
-Abra `http://localhost:5500`.
-
-## API disponivel
-
-- `GET /api/busca` com filtros: `id`, `nome`, `bloco`, `andar`, `tipo`, `responsavel`, `materia`, `horario`, `temAr`, `capacidadeMin`.
-- `GET /api/locais` para listar locais cadastrados.
-- `POST /api/locais` (form urlencoded) com campos obrigatorios:
-  `id`, `nome`, `bloco`, `andar`, `tipo`, `capacidade`, `temAr`, `responsavel`, `materia`, `horario`.
-
-Exemplo:
-
-```bash
-curl "http://localhost:8091/api/busca?bloco=UAC&capacidadeMin=40"
-```
-
-## Documentacao
-
-- Guia de ambiente: [docs/SETUP.md](docs/SETUP.md)

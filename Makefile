@@ -15,6 +15,7 @@ SRC_COMMON := \
 	backend/src/util.c \
 	backend/src/busca_binaria.c \
 	backend/src/busca_indexada.c \
+	backend/src/busca_hash.c \
 	backend/src/busca_interpolacao.c
 
 MAIN_SRC := backend/src/main.c

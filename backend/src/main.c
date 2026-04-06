@@ -1,8 +1,3 @@
-/*
-Funcao no projeto: ponto de entrada executavel do backend.
-Conteudo: CLI para executar buscas por id com metodos diferentes.
-O que faz: conecta dataset + metodos (binaria, indexada, interpolacao).
-*/
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>

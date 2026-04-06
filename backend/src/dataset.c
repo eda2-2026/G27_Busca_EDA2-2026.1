@@ -1,8 +1,3 @@
-/*
-Funcao no projeto: implementar carga e ordenacao do dataset.
-Conteudo: dataset inicial de exemplo e ordenacao por id.
-O que faz: fornece dados basicos para exercitar os metodos de busca.
-*/
 #include "dataset.h"
 
 #include <stdlib.h>

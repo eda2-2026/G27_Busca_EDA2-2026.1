@@ -1,8 +1,3 @@
-/*
-Funcao no projeto: declarar contratos das buscas e estruturas de resultado.
-Conteudo: ResultadoBusca, EntradaIndice e assinaturas das funcoes de busca.
-O que faz: garante uma API unica para as implementacoes de busca no backend.
-*/
 #ifndef BUSCAS_H
 #define BUSCAS_H
 

@@ -1,8 +1,3 @@
-/*
-Funcao no projeto: implementar a busca binaria por id.
-Conteudo: implementacao da funcao busca_binaria_por_id.
-O que faz: encontra um id em vetor ordenado com complexidade O(log n).
-*/
 #include "buscas.h"
 
 int busca_binaria_por_id(

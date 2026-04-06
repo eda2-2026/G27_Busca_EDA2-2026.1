@@ -1,9 +1,3 @@
-/*
-Arquivo: backend/include/util.h
-Funcao no projeto: expor utilitarios compartilhados entre modulos.
-Conteudo: funcoes de comparacao de strings e impressao de resultados.
-O que faz: centraliza rotinas auxiliares reutilizadas no backend.
-*/
 #ifndef UTIL_H
 #define UTIL_H
 
